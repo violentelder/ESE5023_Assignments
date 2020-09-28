@@ -1,0 +1,36 @@
+#==========1=========
+#=======Flowchart====
+Print_values <- function(){
+  a = runif(1,-9999,9999)
+  b = runif(1,-9999,9999)
+  c = runif(1,-9999,9999)
+  array1 <- c()
+  if(a > b){
+    if(b > c){
+      array1 <- c(a, b ,c)
+    }
+    else{
+      if(a > c){
+        array1 <- c(a, c, b)
+      }
+      else{
+        array1 <- c(c, a, b)
+      }
+    }
+  }
+  else{
+    if(b > c){
+      if(a > c){
+        array1 <- c(a, c, b)
+      }
+      else{
+        array1 <- c(c, a, b)
+      }
+    }
+    else
+      array1 <- c(c, b, a)
+  }
+  return(array1)
+}
+
+Print_values()
