@@ -2,7 +2,6 @@
 #======Dynamic programming======
 symbol <- c('+', '-', '')
 num1 <<- c('1','2','3','4','5','6','7','8','9')
-num2 <<- c('9','8','7','6','5','4','3','2','1')
 strvectot <<- c()
 
 #枚举出所有的表达式
@@ -67,7 +66,16 @@ plot(seq(1,100,1),Total_solutions,type = "l",
 abline(h=max(Total_solutions),col="red",lty=2)
 abline(v=which(Total_solutions==max(Total_solutions)),col="red",lty=2)
 text(20,max(Total_solutions),max(Total_solutions),
-     cex=2,col="blue")
+     cex=2,col="red")
 text(which(Total_solutions==max(Total_solutions)),
      8,which(Total_solutions==max(Total_solutions)),
      cex=2,col="red")
+
+#标出最小值及其横纵坐标
+abline(h=min(Total_solutions),col="green",lty=2)
+abline(v=which(Total_solutions==min(Total_solutions)),col="green",lty=2)
+text(20,min(Total_solutions),min(Total_solutions),
+     cex=2,col="green")
+text(which(Total_solutions==min(Total_solutions)),
+     8,which(Total_solutions==min(Total_solutions)),
+     cex=2,col="green")

@@ -37,8 +37,8 @@ sumdays <- function(a,b=Inf){
     temp <- 0
     daycode1 <- daycode[which(year == i)] 
     for (j in unique(daycode1)) {
-      m1 <- mean(distance2[which(daycode == j)],na.rm = T)
-      #计算当日能见度平均值时，可能会出现NA情况导致判断异常，故此处需要进行重新赋值
+      m1 <- max(distance2[which(daycode == j)],na.rm = T)
+      #计算当日能见度最大值时，可能会出现NA情况导致判断异常，故此处需要进行重新赋值
       if(is.na(m1))
         m1 <- 0
       if(m1 >= a && m1 < b){
@@ -74,5 +74,3 @@ x <- barplot(sday,names.arg=unique(year),xlab="year",ylab="Days",
              main=paste("Visibility chart >" , a,'(m)'))
 lbls<-paste(" ",sday)
 text(x,sday,labels=lbls,cex=0.5,pos=1)
-#结论：从图像中可以看出从2010年到2020年间，高能见度天数逐年增加，
-#在2018年达到峰值，但在2019年开始出现了下降趋势

@@ -15,4 +15,4 @@ Least_moves <- function(n, moves = 0){
     return(Least_moves(n,moves))
   }
 }
-Least_moves(5)
+Least_moves(100)
