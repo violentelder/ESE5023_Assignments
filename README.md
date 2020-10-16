@@ -16,17 +16,11 @@ V1.0.0
 ##### PS1内容介绍：
 
 1. Flowchart
-
 2. Matrix multiplication
-
 3. Pascal triangle
-
 4. Add or double
-
 5. Dynamic programming
-
 6. Visibility in Shenzhen during the past 10 years
-
 7. Explore a data set
 
 ##### PS2内容介绍：
