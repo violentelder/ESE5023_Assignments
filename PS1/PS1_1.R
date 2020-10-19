@@ -21,10 +21,10 @@ Print_values <- function(){
   else{
     if(b > c){
       if(a > c){
-        array1 <- c(a, c, b)
+        array1 <- c(b, a, c)
       }
       else{
-        array1 <- c(c, a, b)
+        array1 <- c(b, c, a)
       }
     }
     else
