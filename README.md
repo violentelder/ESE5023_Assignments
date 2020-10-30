@@ -29,4 +29,27 @@ V1.0.0
 2. Wind speed in Shenzhen during the past 10 years
 3. Revisit a data set
 
+##### PS3内容介绍：
+
+1. Cloud Seeding
+
+2. Was Tyrannosaurus Rex Warm-Blooded?
+
+3. Vegetarians and Zinc
+
+4. Atmospheric Lapse Rate
+
+5. The Big Bang Theory
+
+6. CPU Performance
+
+7. Analysis of Data Sets from Your Group
+
+
+
+
+
+
+
+
 
