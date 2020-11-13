@@ -10,10 +10,10 @@ shengzheng <- as_tibble(read.csv("2281305.csv",header = T))
 
 shengzheng %>% 
   select(DATE,WND) %>% 
+  filter(as.numeric(substr(WND,9,12)) != 9999) %>% 
   mutate(winspeed = ifelse((substr(WND,14,14) == 2 | substr(WND,14,14) == 3 |
                               substr(WND,14,14) == 6 | substr(WND,14,14) == 7),
-                           NA,as.numeric(substr(WND,9,12)) * 10)) %>% 
-  filter(winspeed != 9999) %>% 
+                           NA,as.numeric(substr(WND,9,12)) / 10)) %>% 
   mutate(date2 = as.numeric(paste(substr(DATE,1,4),substr(DATE,6,7),sep = ""))) %>% 
   group_by(date2) %>% 
   summarize(month_mean = mean(winspeed,na.rm = T)) %>% 
