@@ -39,6 +39,10 @@ V1.0.0
 6. CPU Performance
 7. Analysis of Data Sets from Your Group
 
+##### PS4内容介绍：
+
+1. Plotting with ggplot2
+2. Analysis of the time series of monthly temperature
 
 
 
