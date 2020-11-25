@@ -44,6 +44,11 @@ V1.0.0
 1. Plotting with ggplot2
 2. Analysis of the time series of monthly temperature
 
+##### PS5内容介绍：
+
+1. Potential Renewable Energy Spots in China
+2. More Linux Commands
+
 
 
 
