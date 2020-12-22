@@ -5,7 +5,7 @@ library("sf")
 library("raster")
 library(pacman)
 library(tidyverse)
-setwd("D:/ESE5023/ESE5023_Assignments/Final Project/Converted Date/COUNTRY_LAY_YEAR_MEAN/")
+setwd("D:/ESE5023/ESE5023_Assignments/Final Project/Converted Data/COUNTRY_LAY_YEAR_MEAN/")
 
 #遍历的时间跨度
 year <- seq(1982,2011)
@@ -20,7 +20,9 @@ India <- data.frame()
 Russia <- data.frame()
 SouthAfrica <- data.frame()
 for (i in 1:length(country)) {
-  a <- list.files(paste("./",country[i],sep = ""),pattern = "*.tif$", full.names = TRUE)
+  a <- list.files(paste("./",country[i],sep = ""),
+                  pattern = "*.tif$", 
+                  full.names = TRUE)
   n = length(a)
   dir(paste("./",country[i],sep = ""),full.names = TRUE)%>%
     stack()->LAI_COUNTRY
@@ -30,16 +32,24 @@ for (i in 1:length(country)) {
                           seq = "")))
 }
 
+#绘制各国的LAI变化情况直方图
 China %>% 
   gather("year","lai") %>% 
   mutate(Year = substr(year,2,5)) %>% 
   group_by(Year) %>% 
   summarise(annual_mean_lai = mean(lai,na.rm = T),
             annual_varience_lai = var(lai,na.rm = T)) %>% 
-  ggplot(aes(Year,annual_mean_lai,fill=Year,group=factor(1)))+
-  geom_bar(stat="identity",width=0.5)+
-  geom_text(aes(label = round(annual_mean_lai,1), vjust = -0.8, hjust = 0.5, color = Year), 
+  ggplot(aes(Year,annual_mean_lai,group=factor(1)))+
+  ylab(expression("Leaf Area Index  "*"["*m^{2}*"/"*m^{2}*"]"))+
+  labs(title="Annual Mean LAI of China")+
+  geom_point()+
+  geom_smooth()+
+  geom_text(aes(label = round(annual_mean_lai,1), 
+                vjust = -0.8, 
+                hjust = 0.5, 
+                color = Year), 
             show.legend = TRUE)
+
 
 Brazil %>% 
   gather("year","lai") %>% 
@@ -47,9 +57,15 @@ Brazil %>%
   group_by(Year) %>% 
   summarise(annual_mean_lai = mean(lai,na.rm = T),
             annual_varience_lai = var(lai,na.rm = T)) %>% 
-  ggplot(aes(Year,annual_mean_lai,fill=Year,group=factor(1)))+
-  geom_bar(stat="identity",width=0.5)+
-  geom_text(aes(label = round(annual_mean_lai,1), vjust = -0.8, hjust = 0.5, color = Year), 
+  ggplot(aes(Year,annual_mean_lai,group=factor(1)))+
+  ylab(expression("Leaf Area Index  "*"["*m^{2}*"/"*m^{2}*"]"))+
+  labs(title="Annual Mean LAI of Brazil")+
+  geom_point()+
+  geom_smooth()+
+  geom_text(aes(label = round(annual_mean_lai,1), 
+                vjust = -0.8, 
+                hjust = 0.5, 
+                color = Year), 
             show.legend = TRUE)
 
 India %>% 
@@ -58,9 +74,15 @@ India %>%
   group_by(Year) %>% 
   summarise(annual_mean_lai = mean(lai,na.rm = T),
             annual_varience_lai = var(lai,na.rm = T)) %>% 
-  ggplot(aes(Year,annual_mean_lai,fill=Year,group=factor(1)))+
-  geom_bar(stat="identity",width=0.5)+
-  geom_text(aes(label = round(annual_mean_lai,1), vjust = -0.8, hjust = 0.5, color = Year), 
+  ggplot(aes(Year,annual_mean_lai,group=factor(1)))+
+  ylab(expression("Leaf Area Index  "*"["*m^{2}*"/"*m^{2}*"]"))+
+  labs(title="Annual Mean LAI of India")+
+  geom_point()+
+  geom_smooth()+
+  geom_text(aes(label = round(annual_mean_lai,1), 
+                vjust = -0.8, 
+                hjust = 0.5, 
+                color = Year), 
             show.legend = TRUE)
 
 Russia %>% 
@@ -69,9 +91,15 @@ Russia %>%
   group_by(Year) %>% 
   summarise(annual_mean_lai = mean(lai,na.rm = T),
             annual_varience_lai = var(lai,na.rm = T)) %>% 
-  ggplot(aes(Year,annual_mean_lai,fill=Year,group=factor(1)))+
-  geom_bar(stat="identity",width=0.5)+
-  geom_text(aes(label = round(annual_mean_lai,1), vjust = -0.8, hjust = 0.5, color = Year), 
+  ggplot(aes(Year,annual_mean_lai,group=factor(1)))+
+  ylab(expression("Leaf Area Index  "*"["*m^{2}*"/"*m^{2}*"]"))+
+  labs(title="Annual Mean LAI of Russia")+
+  geom_point()+
+  geom_smooth()+
+  geom_text(aes(label = round(annual_mean_lai,1), 
+                vjust = -0.8, 
+                hjust = 0.5, 
+                color = Year), 
             show.legend = TRUE)
 
 SouthAfrica %>% 
@@ -80,9 +108,66 @@ SouthAfrica %>%
   group_by(Year) %>% 
   summarise(annual_mean_lai = mean(lai,na.rm = T),
             annual_varience_lai = var(lai,na.rm = T)) %>% 
-  ggplot(aes(Year,annual_mean_lai,fill=Year,group=factor(1)))+
-  geom_bar(stat="identity",width=0.5)+
-  geom_text(aes(label = round(annual_mean_lai,1), vjust = -0.8, hjust = 0.5, color = Year), 
+  ggplot(aes(Year,annual_mean_lai,group=factor(1)))+
+  ylab(expression("Leaf Area Index  "*"["*m^{2}*"/"*m^{2}*"]"))+
+  labs(title="Annual Mean LAI of SouthAfrica")+
+  geom_point()+
+  geom_smooth()+
+  geom_text(aes(label = round(annual_mean_lai,1), 
+                vjust = -0.8, 
+                hjust = 0.5, 
+                color = Year), 
+            show.legend = TRUE)
+
+#提取中国西北地区的
+a <- list.files(paste("./",country[1],sep = ""),
+                pattern = "*.tif$", 
+                full.names = TRUE)
+n = length(a)
+dir(paste("./",country[1],sep = ""),full.names = TRUE)%>%
+  stack()->LAI_China
+names(LAI_China) <- year
+
+#中国西北地区年平均LAI变化情况
+site <- extent(74,123,35,50)
+LAI_China_WN <- crop(LAI_China, site)
+China_WN <- as_tibble(as.matrix(LAI_China_WN))
+China_WN %>% 
+  gather("year","lai") %>% 
+  mutate(Year = substr(year,2,5)) %>% 
+  group_by(Year) %>% 
+  summarise(annual_mean_lai = mean(lai,na.rm = T),
+            annual_varience_lai = var(lai,na.rm = T)) %>% 
+  ggplot(aes(Year,annual_mean_lai,group=factor(1)))+
+  ylab(expression("Leaf Area Index  "*"["*m^{2}*"/"*m^{2}*"]"))+
+  labs(title="Annual Mean LAI of Western China")+
+  geom_point()+
+  geom_smooth()+
+  geom_text(aes(label = round(annual_mean_lai,1), 
+                vjust = -0.8, 
+                hjust = 0.5, 
+                color = Year), 
+            show.legend = TRUE)
+
+#中国延安地区年平均LAI变化情况
+site <- extent(108,110,35,37)
+LAI_China_YA <- crop(LAI_China, site)
+China_YA <- as_tibble(as.matrix(LAI_China_YA))
+China_YA %>% 
+  gather("year","lai") %>% 
+  mutate(Year = substr(year,2,5)) %>% 
+  group_by(Year) %>% 
+  summarise(annual_mean_lai = mean(lai,na.rm = T),
+            annual_varience_lai = var(lai,na.rm = T)) %>% 
+  ggplot(aes(Year,annual_mean_lai,group=factor(1)))+
+  ylab(expression("Leaf Area Index  "*"["*m^{2}*"/"*m^{2}*"]"))+
+  labs(title="Annual Mean LAI of Yanan")+
+  geom_point()+
+  geom_smooth()+
+  geom_text(aes(label = round(annual_mean_lai,1), 
+                vjust = -0.8, 
+                hjust = 0.5, 
+                color = Year), 
             show.legend = TRUE)
 
 

@@ -15,7 +15,7 @@ year <- as.character(year)
 #分别读取不同年份对应的文件夹
 for (j in 1:length(year)) {
   #读取文件夹中所有的GeoTiff数据
-  path = paste("D:/ESE5023/Final Project/Data/glass LAI_MODIS/globalLAI2000-2011//", year[j],sep = "") 
+  path = paste("./", year[j],sep = "") 
   #获得当前路径下的文件列表及数目
   a <- list.files(path,pattern = "*.tif$", full.names = TRUE)
   n = length(a)

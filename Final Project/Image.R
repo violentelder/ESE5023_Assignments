@@ -5,7 +5,7 @@ library("sf")
 library("raster")
 library(pacman)
 library(tidyverse)
-setwd("D:/ESE5023/ESE5023_Assignments/Final Project/Converted Date/COUNTRY_LAY_YEAR_MEAN/")
+setwd("D:/ESE5023/ESE5023_Assignments/Final Project/Converted Data/COUNTRY_LAY_YEAR_MEAN/")
 
 #遍历的时间跨度
 year <- seq(1982,2011)
@@ -17,7 +17,9 @@ outDir <- "../COUNTRY_LAY_YEAR_MEAN_IMAGE/"
 for (i in 1:length(country)) {
   outputpath <- paste(outDir,country[i],sep = "")
   dir.create(outputpath)
-  a <- list.files(paste("./",country[i],sep = ""),pattern = "*.tif$", full.names = TRUE)
+  a <- list.files(paste("./",country[i],sep = ""),
+                  pattern = "*.tif$", 
+                  full.names = TRUE)
   n = length(a)
   dir(paste("./",country[i],sep = ""),full.names = TRUE)%>%
     stack()->LAI_COUNTRY
@@ -46,7 +48,8 @@ for (i in 1:length(country)) {
          legend.shrink=1, 
          legend.width=1, 
          legend.mar=2,
-         legend.args=list(text=expression("Leaf Area Index "*"["*m^{2}*"/"*m^{2}*"]"),
+         legend.args=
+           list(text=expression("Leaf Area Index "*"["*m^{2}*"/"*m^{2}*"]"),
                           cex=1.25))
     title(xlab="Longitude",cex.lab=1.25,line = 2)
     title(ylab="Latitude",cex.lab=1.25,line = 2)
