@@ -48,7 +48,14 @@ China %>%
                 vjust = -0.8, 
                 hjust = 0.5, 
                 color = Year), 
-            show.legend = TRUE)
+            show.legend = TRUE,
+            size = 5)+
+  theme_bw() +
+  theme(plot.title=element_text(size=20, face="bold"), 
+        axis.text.x=element_text(size=10), 
+        axis.text.y=element_text(size=10),
+        axis.title.x=element_text(size=20),
+        axis.title.y=element_text(size=20))
 
 
 Brazil %>% 
@@ -66,7 +73,14 @@ Brazil %>%
                 vjust = -0.8, 
                 hjust = 0.5, 
                 color = Year), 
-            show.legend = TRUE)
+            show.legend = TRUE,
+            size = 5)+
+  theme_bw() +
+  theme(plot.title=element_text(size=20, face="bold"), 
+        axis.text.x=element_text(size=10), 
+        axis.text.y=element_text(size=10),
+        axis.title.x=element_text(size=20),
+        axis.title.y=element_text(size=20))
 
 India %>% 
   gather("year","lai") %>% 
@@ -83,7 +97,14 @@ India %>%
                 vjust = -0.8, 
                 hjust = 0.5, 
                 color = Year), 
-            show.legend = TRUE)
+            show.legend = TRUE,
+            size = 5)+
+  theme_bw() +
+  theme(plot.title=element_text(size=20, face="bold"), 
+        axis.text.x=element_text(size=10), 
+        axis.text.y=element_text(size=10),
+        axis.title.x=element_text(size=20),
+        axis.title.y=element_text(size=20))
 
 Russia %>% 
   gather("year","lai") %>% 
@@ -100,7 +121,14 @@ Russia %>%
                 vjust = -0.8, 
                 hjust = 0.5, 
                 color = Year), 
-            show.legend = TRUE)
+            show.legend = TRUE,
+            size = 5)+
+  theme_bw() +
+  theme(plot.title=element_text(size=20, face="bold"), 
+        axis.text.x=element_text(size=10), 
+        axis.text.y=element_text(size=10),
+        axis.title.x=element_text(size=20),
+        axis.title.y=element_text(size=20))
 
 SouthAfrica %>% 
   gather("year","lai") %>% 
@@ -117,7 +145,14 @@ SouthAfrica %>%
                 vjust = -0.8, 
                 hjust = 0.5, 
                 color = Year), 
-            show.legend = TRUE)
+            show.legend = TRUE,
+            size = 5)+
+  theme_bw() +
+  theme(plot.title=element_text(size=20, face="bold"), 
+        axis.text.x=element_text(size=10), 
+        axis.text.y=element_text(size=10),
+        axis.title.x=element_text(size=20),
+        axis.title.y=element_text(size=20))
 
 #提取中国西北地区的
 a <- list.files(paste("./",country[1],sep = ""),
@@ -147,7 +182,14 @@ China_WN %>%
                 vjust = -0.8, 
                 hjust = 0.5, 
                 color = Year), 
-            show.legend = TRUE)
+            show.legend = TRUE,
+            size = 5)+
+  theme_bw() +
+  theme(plot.title=element_text(size=20, face="bold"), 
+        axis.text.x=element_text(size=10), 
+        axis.text.y=element_text(size=10),
+        axis.title.x=element_text(size=20),
+        axis.title.y=element_text(size=20))
 
 #中国延安地区年平均LAI变化情况
 site <- extent(108,110,35,37)
@@ -168,6 +210,12 @@ China_YA %>%
                 vjust = -0.8, 
                 hjust = 0.5, 
                 color = Year), 
-            show.legend = TRUE)
-
+            show.legend = TRUE,
+            size = 5)+
+  theme_bw() +
+  theme(plot.title=element_text(size=20, face="bold"), 
+        axis.text.x=element_text(size=10), 
+        axis.text.y=element_text(size=10),
+        axis.title.x=element_text(size=20),
+        axis.title.y=element_text(size=20))
 
